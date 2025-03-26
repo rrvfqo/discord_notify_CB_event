@@ -60,7 +60,7 @@ def get_sii_announcement():
         # 將 JSON 資料轉換為 Python dict
         response_dict = json.loads(json_data)
 
-        # 篩選出 'ctime' 與現在時間相差一小時以內的資料
+        # 篩選出 'CTIME' 與現在時間相差一小時以內的資料
         one_hour_ago = datetime.now() - timedelta(hours=1)
         print(f"SII one_hour_ago = {one_hour_ago}")
         filtered_data = []
@@ -98,7 +98,7 @@ def get_otc_announcement():
         # 將 JSON 資料轉換為 Python dict
         response_dict = json.loads(json_data)
 
-        # 篩選出 'ctime' 與現在時間相差一小時以內的資料
+        # 篩選出 'CTIME' 與現在時間相差一小時以內的資料
         one_hour_ago = datetime.now() - timedelta(hours=1)
         print(f"OTC one_hour_ago = {one_hour_ago}")
         filtered_data = []
@@ -143,7 +143,7 @@ def check_new_announcements():
     if new_announcements:
         print("有新的公告：")
         for announcement in new_announcements:
-            announcement_details = f"{announcement['ctime']}\n{announcement['COMPANY_ID']}{announcement['COMPANY_NAME']}\n{announcement['SUBJECT']}\n{announcement['HYPERLINK']}"
+            announcement_details = f"{announcement['CTIME']}\n{announcement['COMPANY_ID']}{announcement['COMPANY_NAME']}\n{announcement['SUBJECT']}\n{announcement['HYPERLINK']}"
             print(announcement_details)
         # save_sent_announcements(sent_announcements)  # 儲存已發送的公告
     else:
